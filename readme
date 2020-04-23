@@ -1,0 +1,28 @@
+inf.html talks to inffunction.js
+
+To add (1-18)
+as long as there is a non-zero chance of infection and a large population, and a non-zero socialcoef, we expect at least ONE person should get infected. Unfortunately, the way the # of infected is decided does not work properly, because it will just round down if p_infect*ninfected*socialcoef < 1. That is, we do not take into account MULTIPLE exposures for the healthy people. If some person is exposed 100 times and there is a 0.01 chance of infection, they should be infected by default. Basically, it's all or nothing. There is not enough of a time-dependance on whether or not someone gets infected. 
+
+Proposed Solution:
+make p_infect a probability distribution, not a constant. In this way, a certain percentage of the population is more susceptible to becoming infected and will become infected given a decent amount of time.
+
+Proposed Solution 2:
+use a p distribution to vary p_infect by an order of magnitude. 
+
+3:
+nhealthy is a p distribution of 1/p_infect indices.
+they are distributed along this array normally.
+When they are exposed, 
+
+imagine inffunction is between the script tags in inf.html.
+
+notice something interesting about the backup scheme, every time I ./infbackup I also backup every backup! 
+
+To add:
+Edit Infection table (death prob, social coef, etc). 
+Graphical display on graph. Change graph size according to run on/off, if not running make graph tiny, if running make graph huge.
+Only show "adjust variables…" while not running.
+
+Problem with the infclass: the healthy people are not being social, only the infected are. We need the healthy population to go out and "look" for infected. (note: this may be due to a rounding error in the floor function). This may not be a bug, however, imagine if we had a population of 70 "infected" people. The simulator basically calcs what are the odds of one of these infected meeting a healthy? if 100 sick to 1 healthy, the odds are 1 in a hundred for each * social coefficient (# ppl met per tick) * odds of spreading disease (~1/10 of these people are infected). We should expect the healthy people to go out and meet the same # of people. In this case if they met 10 ppl/day, there is a 
+
+spread of a disease through tribes of indigenous 

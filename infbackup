@@ -1,0 +1,10 @@
+#!/bin/sh
+#create two backups of the gpy folder. One local one in dropbox. Just type ./backup
+#after making this executable (chmod +x backup)
+name0='infsim_'`date '+%F___%Hh%Mm%Ss'`
+# -x is exclude, we don't want to rebackup the backups everytime. 
+zip -r $name0 . -x "inf_backups/*" 
+cp $name0.zip inf_backups/
+cp $name0.zip /Users/reidmat/Dropbox/programs/inf_backups_organized/
+rm $name0.zip
+
