@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Infection Simulator</title>
+    <link href="layout.css" rel="stylesheet" type="text/css">
+    <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="../excanvas.min.js"></script><![endif]-->
+    <script
+      src="https://code.jquery.com/jquery-2.2.4.min.js"
+      integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+      crossorigin="anonymous"></script>
+    <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/flot/0.8.3/jquery.flot.min.js"></script>
+ </head>
+    <body>
+    <h1>Infection Simulator</h1>
+    <p>By Reid Sherman (2011) </p>
+
+    <div id="placeholder" style="width:450px;height:200px;"></div>
+
+    <p>Introduce a novel virus to a population by adjusting the variables below.<div id = "run_time"> time elapsed (stops at equilibrium): <span></span></div></p>
+    <label><input type="checkbox" input id="runToggle">Edit Population</label>
+    <input id = "Reset" type="button">Reset
+    <table id="outtable" border="1">
+    <tr>
+      <th>infected</th>
+      <th>healthy</th>
+      <th>immune</th>
+      <th>dead</th>
+    </tr>
+    <tr>
+      <td><output id="infected" type="text"></td>
+      <td><output id="healthy" type="text"></td>
+      <td><output id="immune" type="text"></td>
+      <td><output id="dead" type="text"></td>
+    </tr>
+    </table>
+    <!--<input id="test" type = "text" value="a">-->
+    <script>
+      /*$("#outtable").hide();
+      //x = 0;
+      $("#runToggle").change(function () {
+        document.getElementById("test") = $(this).val()
+        if ($(this).val())
+             $("#outtable").hide();
+        else 
+             $("#outtable").hide();
+      });*/
+    </script>
+    <font size = 1>
+    <table id="live_options_table" border="1">
+    <tr>
+	<th>Vaccinate %</th>
+	<th>Introduce<br>Vaccination</th>
+	<th>pdeath after<br>treatment</th>
+	<th># days infected <br> before treatment</th>
+	<th>Introduce<br>Treatment</th>
+      </tr>
+      <tr>
+	<td><input id="vaccine_mu" type = "text" value="0.0"></td>
+	<td><input id="vaccine_toggle" type = "button"></td>
+	<td><input id="treatment_mu" type = "text" value="0.0"></td>
+	<td><input id="treatment_x" type = "text" value="0"></td>
+	<td><input id="treatment_toggle" type = "button"></td>
+      </tr>
+    </table>
+    
+    <table id="intable" border="1">
+    <tr>
+      <th>infected</th>
+      <th>healthy</th>
+      <th>immune</th>
+    </tr>
+    <tr>
+      <td><input id="init_ninfected" type="text"></td>
+      <td><input id="init_nhealthy" type="text"></td>
+      <td><input id="init_nimmune" type="text"></td>
+    </tr>
+    </table>
+    <table id="infection_properties_table" border="1">
+      <tr>
+	<th>p_infect<br>(infections/exposures)</th>
+	<th>social_coef<br>(exposures/infected)</th>
+	<th>inf_time<br>(avg time infected)</th>
+	<th>p_death<br>(deaths/inf_time)</th>
+      </tr>
+      <tr>
+	<td><input id="init_pinfect" type="text"></td>
+	<td><input id="init_socialcoef" type="text"></td>
+	<td><input id="init_infticks" type="text"></td>
+	<td><input id="init_pdeath" type="text"></td>
+      </tr>
+    </table>
+    </font>
+    <!--<script>$("#intable").hide());</script>
+    <p> healthy: <input id="init_nhealthy" type ="text"></p>
+    <p> infected: <input id="init_ninfected" type ="text"></p>-->
+    
+    <p><div id = "RESET_TEXT">reset defaults to: <span></span></div></p>
+    <p> Text: <input id = "updateText" type="text" value="" style="text-align: right; width:5em">.</p>
+    <p>Update every: <input id="updateInterval" type="text" value="" style="text-align: right; width:5em"> milliseconds</p>
+<script type ="text/javascript" src="infclass.js"></script>
+<script type="text/javascript" src="inffunction.js"></script>
+
+ </body>
+</html>
